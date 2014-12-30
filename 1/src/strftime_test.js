@@ -1,24 +1,28 @@
-var date = new Date(2009, 9, 5);
+var date = new Date(2009, 9, 2);
 testCase("strftime test", {
+	setUp: function(){
+		this.date = new Date(2009, 9, 2, 22, 14, 45)
+		
+	},
 	"test format specifier %Y": function(){
 		assert("%Y should return full year",
-				date.strftime("%Y") === "2009");
+				this.date.strftime("%Y") === "2009");
 	},
 	
 	"test format specifier %m": function(){
 		assert("%m should return month",
-				date.strftime("%m") === "09");
+				this.date.strftime("%m") === "09");
 	},
 	"test format specifier %d": function () {
 		assert("%d should return date",
-				date.strftime("%d") === "05");
+				this.date.strftime("%d") === "02");
 	},
 	"test format specifier %y": function () {
 		assert("%y should return year as two digits",
-				date.strftime("%y") === "09");
+				this.date.strftime("%y") === "09");
 	},
 	"test format shorthand %F": function () {
 		assert("%F should act as %Y-%m-%d",
-				date.strftime("%F") === "2009-09-05");
+				this.date.strftime("%F") === "2009-09-02");
 	}
 });
